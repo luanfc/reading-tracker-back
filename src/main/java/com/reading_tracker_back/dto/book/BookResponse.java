@@ -1,12 +1,10 @@
 package com.reading_tracker_back.dto.book;
 
-import java.util.UUID;
-
 import com.reading_tracker_back.domain.Book;
 import com.reading_tracker_back.domain.BookType;
 
 public record BookResponse(
-		UUID id,
+		Long id,
 		String title,
 		String author,
 		int pages,

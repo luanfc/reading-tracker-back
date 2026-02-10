@@ -2,8 +2,8 @@ package com.reading_tracker_back.dto.reading;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.UUID;
 
+import com.reading_tracker_back.domain.Book;
 import com.reading_tracker_back.domain.Reading;
 
 import jakarta.validation.constraints.Min;
@@ -29,11 +29,12 @@ public record CreateReadingRequest(
 		String notes,
 		
 		@NotNull
-		UUID bookId
+		Long bookId
 ) {
 
-	public Reading toEntity() {
+	public Reading toEntity(Book book) {
 		return Reading.builder()
+				.book(book)
 				.date(date)
 				.startTime(startTime)
 				.endTime(endTime)

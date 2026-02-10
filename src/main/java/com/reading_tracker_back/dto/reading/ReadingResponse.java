@@ -2,19 +2,17 @@ package com.reading_tracker_back.dto.reading;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.UUID;
 
 import com.reading_tracker_back.domain.Reading;
 
 public record ReadingResponse(
-		UUID id,
+		Long id,
 		LocalDate date,
 		LocalTime startTime,
 		LocalTime endTime,
 		int startPage,
 		int endPage,
-		String notes,
-		String bookName
+		String notes
 ) {
 	
 	public ReadingResponse(Reading reading) {
@@ -24,8 +22,7 @@ public record ReadingResponse(
 			reading.getEndTime(),
 			reading.getStartPage(),
 			reading.getEndPage(),
-			reading.getNotes(),
-			reading.getBook().getTitle()
+			reading.getNotes()
 		);
 	}
 
